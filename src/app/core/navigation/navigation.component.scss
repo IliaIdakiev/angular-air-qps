@@ -1,0 +1,26 @@
+
+a {
+  text-decoration: none;
+  color: lightgray;
+}
+
+a:hover, a:active{
+  color: white;
+}
+
+.navigation-items{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  a {
+    &.active {
+      color: white;
+    }  
+    & + a {
+      margin-left: 20px;
+    } 
+  }
+}

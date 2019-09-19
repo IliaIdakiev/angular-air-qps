@@ -1,0 +1,13 @@
+div.filter, div.filters-holder {
+  display: flex;
+  height: 65.5px;
+  flex: 1;
+  & > div:not(.button-holder) {
+    margin-right: 20px;
+  }
+}
+div.button-holder {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}

@@ -1,0 +1,10 @@
+<div class="filter">
+  <div class="button-holder">
+    <button mat-icon-button aria-label="filter button" (click)="toggle()">
+      <mat-icon>filter_list</mat-icon>
+    </button>
+  </div>
+  <div class="filters-holder" *ngIf="visible$ | async">
+    <ng-content></ng-content>
+  </div>
+</div>
