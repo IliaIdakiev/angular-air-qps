@@ -45,16 +45,29 @@
     <mat-card-content>
       <table mat-table [dataSource]="userListDataSource" matSort (matSortChange)="sortChangeHandler($event)">
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="name"> Name </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="name" appTableSort #nameSort="appTableSort"
+            [start]="nameSort.value"> Name </th>
           <td mat-cell *matCellDef="let element"> {{element.name}} </td>
         </ng-container>
         <ng-container matColumnDef="username">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="username"> Username </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="username" appTableSort #usernameSort="appTableSort"
+            [start]="usernameSort.value">
+            Username
+          </th>
           <td mat-cell *matCellDef="let element"> {{element.username}} </td>
         </ng-container>
         <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="email"> Email </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="email" appTableSort #emailSort="appTableSort"
+            [start]="emailSort.value"> Email
+          </th>
           <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>
+            Actions
+          </th>
+          <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" [routerLink]="[]"
+              [queryParams]="{ edit: element.id }" queryParamsHandling="merge">Edit</button> </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

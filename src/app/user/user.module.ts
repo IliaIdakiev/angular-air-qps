@@ -7,16 +7,22 @@ import {
   MatIconModule,
   MatSortModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatDialogModule
 } from '@angular/material';
 import { UserRoutingModule } from './user-routing.module';
 import { ListComponent } from './list/list.component';
 import { ListResolver } from './guards/list.resolver';
 import { SharedModule } from '../shared/shared.module';
+import { EntityComponent } from './entity/entity.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [ListComponent],
+  declarations: [
+    ListComponent,
+    EntityComponent
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -27,10 +33,15 @@ import { SharedModule } from '../shared/shared.module';
     MatIconModule,
     MatSortModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [
     ListResolver
+  ],
+  entryComponents: [
+    EntityComponent
   ]
 })
 export class UserModule { }

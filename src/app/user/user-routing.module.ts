@@ -36,7 +36,12 @@ const routes: IQueryParamsStoreRoutes = [
             value: '',
             multi: true
           },
-          showFilter: false
+          showFilter: false,
+          edit: {
+            value: null,
+            typeConvertor: Number,
+            multi: false
+          }
         },
         removeUnknown: true
       }

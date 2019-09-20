@@ -1,9 +1,9 @@
 export function multiValueHandler(current, name, value) {
   current = current.map(item => item.split(':'));
   const changeIndex = current.findIndex(([n]) => n === name);
-  if (changeIndex === -1) {
+  if (changeIndex === -1 && value) {
     current = current.concat([[name, value]]);
-  } else {
+  } else if (changeIndex !== -1) {
     if (value) {
       current = [
         ...current.slice(0, changeIndex),
