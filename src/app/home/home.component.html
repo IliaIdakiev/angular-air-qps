@@ -1,1 +1,89 @@
-<p>home works!</p>
+<mat-accordion [multi]="true">
+  <mat-expansion-panel [expanded]="(collapsables$ | async) | getProp : 0" (click)="clickHandler(0)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Panel 1 Title
+      </mat-panel-title>
+      <mat-panel-description>
+        Panel 1 Description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="(collapsables$ | async) | getProp : 1" (click)="clickHandler(1)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Panel 2 Title
+      </mat-panel-title>
+      <mat-panel-description>
+        Panel 2 Description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="(collapsables$ | async) | getProp : 2" (click)="clickHandler(2)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Panel 3 Title
+      </mat-panel-title>
+      <mat-panel-description>
+        Panel 3 Description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="(collapsables$ | async) | getProp : 3" (click)="clickHandler(3)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Panel 4 Title
+      </mat-panel-title>
+      <mat-panel-description>
+        Panel 4 Description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="(collapsables$ | async) | getProp : 4" (click)="clickHandler(4)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Panel 5 Title
+      </mat-panel-title>
+      <mat-panel-description>
+        Panel 5 Description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="(collapsables$ | async) | getProp : 5" (click)="clickHandler(5)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Panel 6 Title
+      </mat-panel-title>
+      <mat-panel-description>
+        Panel 6 Description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>

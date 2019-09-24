@@ -1,0 +1,19 @@
+.expansion-panel-holder {
+  position: relative;
+}
+
+mat-panel-description {
+  justify-content: flex-end;
+
+  mat-icon {
+    margin-left: 20px;
+  }
+}
+
+.mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 64px;
+}

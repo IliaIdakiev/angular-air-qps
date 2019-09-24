@@ -5,13 +5,15 @@ import { MatProgressSpinnerModule, MatButtonModule, MatIconModule } from '@angul
 import { ListFilterComponent } from './list-filter/list-filter.component';
 import { TableFilterDirective } from './table-filter.directive';
 import { TableSortDirective } from './table-sort.directive';
+import { GetPropPipe } from './get-prop.pipe';
 
 @NgModule({
   declarations: [
     LoaderComponent,
     ListFilterComponent,
     TableFilterDirective,
-    TableSortDirective
+    TableSortDirective,
+    GetPropPipe
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { TableSortDirective } from './table-sort.directive';
     LoaderComponent,
     ListFilterComponent,
     TableFilterDirective,
-    TableSortDirective
+    TableSortDirective,
+    GetPropPipe
   ]
 })
 export class SharedModule { }
