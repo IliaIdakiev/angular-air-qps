@@ -1,3 +1,5 @@
+// Update the existing multi value query string with thew new value for the provided
+// name. If the value is empty - remove it.
 export function multiValueHandler(current, name, value) {
   current = current.map(item => item.split(':'));
   const changeIndex = current.findIndex(([n]) => n === name);
