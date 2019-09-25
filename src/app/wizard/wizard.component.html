@@ -21,7 +21,8 @@
         </mat-form-field>
       </form>
       <mat-action-row>
-        <button mat-button color="primary" (click)="nextStep()">Next</button>
+        <button mat-button color="primary" (click)="nextStep()"
+          [disabled]="!(secondStepValidation$ | async)">Next</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>
@@ -52,7 +53,8 @@
 
       <mat-action-row>
         <button mat-button color="warn" (click)="prevStep()">Previous</button>
-        <button mat-button color="primary" (click)="nextStep()">Next</button>
+        <button mat-button color="primary" (click)="nextStep()"
+          [disabled]="!(thirdStepValidation$ | async)">Next</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>
@@ -70,20 +72,15 @@
       </mat-expansion-panel-header>
       <form #thirdStep="ngForm">
         <mat-form-field>
-          <input matInput [matDatepicker]="picker1" placeholder="Date" [ngModel]="date$ | async" name="date">
+          <input matInput [matDatepicker]="picker1" placeholder="Date" [ngModel]="date$ | async" name="date" required>
           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
-        <!-- <mat-form-field>
-          <input matInput [ngModel]="date$ | async" name="date" placeholder="Date" [matDatepicker]="picker"
-            (focus)="picker.open()" readonly required>
-        </mat-form-field>
-        <mat-datepicker #picker></mat-datepicker> -->
       </form>
 
       <mat-action-row>
         <button mat-button color="warn" (click)="prevStep()">Previous</button>
-        <button mat-button color="primary" (click)="nextStep()">End</button>
+        <button mat-button color="primary" (click)="nextStep()" [disabled]="!thirdStep.valid">End</button>
       </mat-action-row>
     </mat-expansion-panel>
   </div>

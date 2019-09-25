@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { QueryParamsStore } from 'query-params-store';
 import { defer, of, zip, Observable } from 'rxjs';
-import { map, first } from 'rxjs/operators';
+import { map, first, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

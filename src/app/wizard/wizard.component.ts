@@ -3,8 +3,9 @@ import { QueryParamsStore } from 'query-params-store';
 import { Router, ActivatedRoute } from '@angular/router';
 import { map, first, takeUntil, distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
-import { Subject, Subscription, asyncScheduler } from 'rxjs';
+import { Subject, Subscription, asyncScheduler, defer } from 'rxjs';
 import { comparer } from '../shared/utils';
+import { WizardService } from '../wizard.service';
 
 @Component({
   selector: 'app-wizard',
@@ -21,6 +22,9 @@ export class WizardComponent implements OnDestroy {
   country$ = this.qps.select('country');
   date$ = this.qps.select('date').pipe(map((val: number) => val ? new Date(val) : val));
 
+  secondStepValidation$ = defer(() => this.wizardService.getValidStream(1));
+  thirdStepValidation$ = defer(() => this.wizardService.getValidStream(2));
+
   @ViewChild('firstStep', { static: true }) set firstStep(form: NgForm) {
     this.stepFormHandler(form, 0);
   }
@@ -31,7 +35,12 @@ export class WizardComponent implements OnDestroy {
     this.stepFormHandler(form, 2);
   }
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private qps: QueryParamsStore) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private qps: QueryParamsStore,
+    private wizardService: WizardService
+  ) { }
 
   stepFormHandler = (form: NgForm, index: number) => {
     if (!form) { return; }
